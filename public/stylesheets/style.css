@@ -73,11 +73,14 @@ a:hover {
 #header {
   margin: 0;
   padding: .8em 1em;
-  background-color: #88C2E5;
+  background-color: #aaaaaa;
 }
 
 #header .company_logo {
-  margin: 0.5em;
+  margin: 0.2em;
+}
+#header .logo {
+
 }
 
 #header a, #header img {
