@@ -80,7 +80,7 @@ a:hover {
   margin: 0.2em;
 }
 #header .logo {
-
+	margin-bottom: 10px;
 }
 
 #header a, #header img {
