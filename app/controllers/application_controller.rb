@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   protected
 
+MOBILE_BROWSERS = ["android", "ipod", "opera mini", "blackberry", "palm","hiptop"]
+
   def adjust_format_for_iphone
     request.format = :iphone if iphone_user_agent?
   end
@@ -13,6 +15,16 @@ class ApplicationController < ActionController::Base
   end
 
   def iphone_user_agent?
-    request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+    if request.env["HTTP_USER_AGENT"] # && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+		agent = request.env["HTTP_USER_AGENT"].downcase
+		MOBILE_BROWSERS.each do |m|
+			return true if agent.match(m)
+    end
+    return false
+	end
   end
+
+#  def iphone_user_agent?
+#    request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+#  end
 end
